@@ -6,8 +6,17 @@ const app = express();
 app.use(express.json());
 
 app.get('/hello', (req, res) => {
-	res.send('Hello World!');
+	res({
+		status: 200,
+		body: JSON.stringify({ message: 'Hello World!' }),
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
 });
+// app.get('/hello', (req, res) => {
+// 	res.send('Hello World!');
+// });
 
 // app.listen(port, () => {
 // 	console.log(`Server is up and running on port ${port}`);
